@@ -1,0 +1,135 @@
+/*!Initially optimized for 1920x1080 with Chrome!*/
+
+/*Colors: #434343 #d35400 #c3922e #f5f5f5 #000 #757575*/
+
+
+#nav #menu-main,#nav #menu-social{
+	width:50%;
+	display:inline-block; 
+	margin:0;
+}
+/*Elements*/
+*{
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;   	
+}
+html{
+	margin:0;
+	padding:0;
+	font-family:Helvetica,Arial,sans-serif;
+	overflow:auto;
+
+}
+body{
+	margin:inherit;
+	padding:inherit;
+	min-height:100vh;
+	max-width:100vw;
+	background-color:#434343;
+}
+a{
+	text-decoration:none;
+	cursor:pointer;
+}
+ul{
+	padding:0;
+	list-style:none none;
+}
+footer{
+	position:absolute;
+	width:80%;
+	margin-left:10%;
+	margin-right:10%;
+	height:3.25rem;
+	bottom:0;
+	border-top:1px solid #757575;/*3c3c3c*/
+	padding-top:0.5rem;
+	text-align:center;
+}
+footer span{
+	display:block;
+	text-align:center;
+	font-size:0.75rem;
+	color:#c3922e;
+}
+textarea{
+	resize:none;
+	width:400px;
+	height:200px;
+}
+/*Id*/
+#container{
+	position:relative;
+	min-height:inherit;
+	height:auto;
+}
+/*Class*/
+.wrapper-1,.wrapper-2,.wrapper-3{
+	position:relative;
+	margin:0 auto;
+	padding-bottom:3.25rem;
+}
+.wrapper-1{
+	width:100%;
+	max-width:1000px;	
+
+}
+.wrapper-2{
+	width:80%;
+	max-width:1000px;
+}
+.wrapper-3{
+	width:80%;
+	max-width:600px;
+}
+.no-copy{
+	-webkit-user-select: none; /* Safari */
+	-ms-user-select: none; /* IE 10 and IE 11 */
+	user-select: none; /* Standard syntax */
+}
+.shadow-b1{
+	box-shadow: 0 3px 3px -3px rgb(0 0 0 / 50%);	
+}
+.shadow-t1{
+	font-weight:700;
+	letter-spacing:0.05em;
+	text-shadow: 0px 0px 3px rgb(0 0 0 / 100%);
+}
+
+/*Js activated classes*/
+#searchbar .click-style-1{
+	border:1px solid #757575;	
+}
+#searchbar .click-style-2{
+	visibility:hidden;
+}
+.hover-svg-1:hover{
+	fill:#d35400;
+}
+.hover-svg-2:hover{
+	fill:#fff;
+}
+
+/*Laptop*/
+@media only screen and (min-width:769px) and (max-width:1024px){
+
+}
+/*Tablet*/
+@media only screen and (min-width:481px) and (max-width:768px){
+	footer span{
+		font-size:0.625rem;
+	}
+}
+/*Mobile*/
+@media only screen and (max-width:480px){
+	.wrapper-1{
+		width:100%;
+	}
+	.wrapper-2,.wrapper-3{
+		width:90%;
+	}
+	footer span{
+		font-size:0.5rem;
+	}
+}
