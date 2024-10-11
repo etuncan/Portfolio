@@ -17,7 +17,7 @@
 				extract($arr);
 		?>
 		<link rel="stylesheet" type="text/css" href="./pages/<?php echo $page;?>.css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Open+Sans:wght@400;500&family=Coda&display=swap">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Open+Sans:wght@300;400;500&family=Coda:wght@300;400;500&display=swap">
 		<link rel="icon" href="./images/favicon.png">
 	</head>
 	<body>

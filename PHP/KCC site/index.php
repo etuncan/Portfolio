@@ -12,26 +12,46 @@
 		<div id="container">
 			<?php include('./theme/header.html');?>
 			<main class="wrapper-1">
-				<img class="banner" src="./images/bgpt3_1.png" alt="banner"/>
+				<img class="banner" src="./images/kc_splash_16x9.jpg" alt="banner"/>
 				<div class="wrapper-2">
-					<h1>We Focus On</h1>
-					<section class="breakln home-sect">
-					<img class="list-img" src="./images/Asset 15.svg"/>
-					<h2>Adaptable Design</h2>
-					<p>Technology is always evolving, and few more quickly than computers and the internet. This is why we carefully balance complexity, modularity, and replacability in all of our work. To ensure that when your website needs change, it is as simple as possible to update.</p>
+					<section id="pillars">
+						<div class="pil-cont">
+							<img class="pil-img" src="./images/adpt_icon.png"/>
+							<div class="desc">
+								<p>Adaptability is the cornerstone of all modern websites and application. We strive for a seamless experience no matter the device or connection. 
+								</p>
+							</div>
+						</div>
+						<div class="pil-cont">
+							<img class="pil-img" src="./images/acc_icon.png"/>
+							<div class="desc">
+								<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+								</p>
+							</div>
+						</div>
+						<div class="pil-cont">
+							<img class="pil-img" src="./images/acc_icon.png"/>
+							<div class="desc"><p>Accountablitiy is at the heart of our operation. Answering questions, regular updates, and documentation are all key to how we run things.</p></div>
+						</div>
 					</section>
-					
-					<section class="breakln home-sect">
-					<img class="list-img" src="./images/Asset 5.svg"/>
-					<h2>Professional Look</h2>
-					<p>Your website is the face of your business. Before a potential client or customer experiences your service or see the quality of your products they will likely see your website. With the inundation of online shopping and social media, that likelihood becomes closer to a guarantee. You don’t need redesign your brand or add a million plug-ins. We can help adjust your existing site, keeping it elegantly simplistic, while still letting your unique brand shine through. Best of all, it is all tailored to your needs. No bloating with unnecessary features, just what you need to help your business flourish. </p>
-					</section>
-					<br>
-					<section class="home-sect">
-					<img class="list-img" src="./images/access.png"/>
-					<h2>Accessability in Mind</h2>
-					<p>We want everyone to be able to experience the sites we build, that means we build with accessability in mind. We strickly follow W3O guidelines in order to provide access to everyone possible.</p>
-					</section>
+					<section class="index-sect">
+						<img class="hero-img" src="./images/team_2x1bw.jpg"/>
+						<div class="wrap-sm">
+							<h2 style="line-height:3em;">Meet Our Team</h2>
+							<a class="bttn" href="./template.php?page=ourteam">Here
+							</a> 
+						</div>
+					</section><!--.home-sect-->
+					<section class="index-sect">
+						<div class="wrap-sm">
+							<h2 style="line-height:3em;">Learn Our Story</h2>
+							<a class="bttn" href="./template.php?page=about">
+								Here 
+							</a>
+						</div>
+						<img class="hero-img" src="./images/story_2x1bw.jpg"/>
+					</section><!--.home-sect-->
 				</div>
 			</main>
 			<?php include('./theme/footer.html');?>
