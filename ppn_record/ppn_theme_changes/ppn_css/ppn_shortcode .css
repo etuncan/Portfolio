@@ -1,0 +1,168 @@
+#icon_ppn-learn .cls-1, #icon_ppn-learn .cls-2, #icon_ppn-learn .cls-3, #icon_ppn-learn .cls-4, #icon_ppn-learn .cls-5, #icon_ppn-learn .cls-6,  #icon_ppn-learn .cls-7, #icon_ppn-learn .cls-8, #icon_ppn-resource .cls-1, #icon_ppn-resource .cls-2, #icon_ppn-resource .cls-3, #icon_ppn-resource .cls-4, #icon_ppn-resource .cls-5, #icon_ppn-resource .cls-6, #icon_ppn-resource .cls-7, #icon_ppn-vet .cls-3, #icon_ppn-vet .cls-2, #icon_ppn-vet .cls-4, #icon_ppn-vet .cls-5, #icon_ppn-vet .cls-6 {
+	stroke-width:2px;
+}
+#icon_ppn-learn .cls-1, #icon_ppn-learn .cls-2, #icon_ppn-learn .cls-3, #icon_ppn-learn .cls-4, #icon_ppn-learn .cls-5, #icon_ppn-learn .cls-6, #icon_ppn-learn .cls-7, #icon_ppn-learn .cls-8{
+	stroke:#4b0d08;
+}
+#icon_ppn-resource .cls-3, #icon_ppn-resource .cls-4, #icon_ppn-resource .cls-7 {
+	stroke:#004248;
+}
+#icon_ppn-resource .cls-1, #icon_ppn-resource .cls-2, #icon_ppn-resource .cls-5, #icon_ppn-resource .cls-6{
+	stroke:#00272b;
+}
+#icon_ppn-vet .cls-3, #icon_ppn-vet .cls-2, #icon_ppn-vet .cls-4, #icon_ppn-vet .cls-5, #icon_ppn-vet .cls-6{
+	stroke:#273927;
+}
+#icon_ppn-learn .cls-1, #icon_ppn-learn .cls-2, #icon_ppn-learn .cls-3, #icon_ppn-learn .cls-4, #icon_ppn-learn .cls-5, #icon_ppn-learn .cls-8, #icon_ppn-resource .cls-1, #icon_ppn-resource .cls-3, #icon_ppn-resource .cls-4, #icon_ppn-resource .cls-5, #icon_ppn-resource .cls-6, #icon_ppn-vet .cls-4{
+	stroke-linecap:round;
+}
+#icon_ppn-learn .cls-1, #icon_ppn-learn .cls-2, #icon_ppn-learn .cls-4, #icon_ppn-learn .cls-5, #icon_ppn-learn .cls-8, #icon_ppn-resource .cls-1, #icon_ppn-resource .cls-3, #icon_ppn-resource .cls-4, #icon_ppn-resource .cls-5, #icon_ppn-resource .cls-6{
+	stroke-linejoin:round;
+}
+#icon_ppn-learn .cls-1, #icon_ppn-learn .cls-9{
+	fill:#feeae8;
+}
+#icon_ppn-learn .cls-2{
+	fill:#f92a1c;
+}
+#icon_ppn-learn .cls-4{
+	fill:#fc958e;
+}
+#icon_ppn-learn .cls-6, #icon_ppn-learn .cls-8{
+	fill:#bd554e;
+}
+#icon_ppn-resource .cls-1, #icon_ppn-resource .cls-8{
+	fill:#e6f3f4;
+}
+#icon_ppn-resource .cls-2{
+	fill:#00838f;
+}
+#icon_ppn-resource .cls-4, #icon_ppn-resource .cls-6{
+	fill:#80c1c7;
+}
+#icon_ppn-resource .cls-5, #icon_ppn-resource .cls-7{
+	fill:#408288;
+}
+#icon_ppn-vet .cls-1, #icon_ppn-vet .cls-2{
+	fill:#c0dfc1;
+}
+#icon_ppn-vet .cls-3{
+	fill:#f2f9f3;
+}
+#icon_ppn-vet .cls-5{
+	fill:#81be83;
+}
+#icon_ppn-vet .cls-6{
+	fill:#819f82;
+}
+#icon_ppn-learn.cls-3, #icon_ppn-learn .cls-5, #icon_ppn-learn .cls-7, #icon_ppn-resource .cls-3, #icon_ppn-vet .cls-4{
+	fill:none;
+}
+#icon_ppn-learn .cls-3, #icon_ppn-learn .cls-6, #icon_ppn-learn .cls-7, #icon_ppn-resource .cls-2, #icon_ppn-resource .cls-7, #icon_ppn-vet .cls-3, #icon_ppn-vet .cls-2, #icon_ppn-vet .cls-4, #icon_ppn-vet .cls-5, #icon_ppn-vet .cls-6{
+	stroke-miterlimit:10;
+}
+.showcase_container{
+	display:flex;
+	flex-wrap:wrap;	
+	text-align:center;
+}
+.showcase-item{
+	width:33%;
+	padding:10px;
+}
+.showcase-item:nth-of-type(2){
+	border-left:1px solid #c0c0c0;
+	border-right:1px solid #c0c0c0;
+}
+.showcase-item p{
+	margin-bottom:0;
+	font-size:14px;
+	font-weight:400;
+	letter-spacing:0.02em;
+	line-height:1.75;
+}
+.showcase-link{
+	display:block;
+}
+.showcase-link:visited{
+	color:inherit;
+}
+.showcase-link:hover{
+	cursor:pointer;
+}
+.showcase-title h3{
+	margin-top:0;
+	letter-spacing:0.02em;
+}
+@media only screen and (max-width:900px){
+	.showcase-item{
+		padding:6px;
+	}
+}
+@media only screen and (max-width:767px){
+	.showcase-item{
+		width:100%;
+		padding-top:30px;
+		padding-bottom:30px;
+	}
+	.showcase-item:nth-of-type(2){
+		border-top:1px solid #c0c0c0;
+		border-bottom:1px solid #c0c0c0;
+		border-right:none;
+		border-left:none;
+	}
+	.showcase-item:first-of-type{
+		padding-top:6px;
+	}
+	.showcase-item:last-of-type{
+		padding-bottom:6px;
+	}
+}
+
+  --template-background-color-1:#d4d4d4;
+  --template-background-color-1--rgb:212,
+  212,
+  212;
+  --template-background-color-2:#3A3A3A;
+  --template-background-color-2--rgb:58,
+  58,
+  58;
+  --template-background-color-2-link:#afd8ff;
+  --template-background-color-2-link--rgb:175,
+  216,
+  255;
+  --template-text-color-1:#1C1C1C;
+  --template-text-color-1--rgb:28,
+  28,
+  28;
+  --template-text-color-2:#eeeeee;
+  --template-text-color-2--rgb:238,
+  238,
+  238;
+  --theme-page-background-color:#eeeeee;
+  --theme-page-background-color--rgb:238,
+  238,
+  238;
+  --theme-page-background-color--secondary:#e4e3e3;
+  --theme-page-background-color--secondary--rgb:228,
+  227,
+  227
+}
+.theme-fandomdesktop-dark {
+  --template-background-color-1:var(--theme-page-background-color);
+  --template-background-color-2:var(--theme-accent-color);
+  --template-background-color-2-link:var(--theme-link-color);
+  --template-text-color-1:var(--theme-page-text-color);
+  --template-text-color-2:var(--theme-accent-label-color)
+}
+.flex-container {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap
+}
+.codexflower {
+  background-color:#2A2A2A;
+  background-image:url(https://images.wikia.nocookie.net/__cb20140827083239/warframe/images/d/df/Codexflower4.png);
+  background-position:left;
+  background-repeat:no-repeat
+}
