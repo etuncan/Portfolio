@@ -1,0 +1,25 @@
+/*toggle and FAQ short code*/
+.vc_toggle_title{
+    text-transform: capitalize;
+}
+.vc_toggle_title h4{
+	font-size:18px !important;
+	line-height:26px !important;
+	font-weight:400;
+}
+.wpb_toggle:after,
+.vc_toggle_title:after{
+    content:url('data:image/svg+xml,<svg version="1.0" id="toggle-arrow-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M40.28,27.68l-14.74-12.37c-.89-.75-2.2-.75-3.09,0l-14.74,12.37c-.85.71-.96,1.98-.25,2.82l1.7,2.02c.71.85,1.98.96,2.82.25l12.01-10.08,12.01,10.08c.85.71,2.11.6,2.82-.25l1.7-2.02c.71-.85.6-2.11-.25-2.82Z"/></svg>')!important;
+	width:24px;
+	transform-origin:center center;
+	transform:rotate(180deg);
+}
+h4.wpb_toggle_title_active:after,
+.vc_toggle_active .vc_toggle_title:after{
+    content:url('data:image/svg+xml,<svg version="1.0" id="toggle-arrow-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M40.28,27.68l-14.74-12.37c-.89-.75-2.2-.75-3.09,0l-14.74,12.37c-.85.71-.96,1.98-.25,2.82l1.7,2.02c.71.85,1.98.96,2.82.25l12.01-10.08,12.01,10.08c.85.71,2.11.6,2.82-.25l1.7-2.02c.71-.85.6-2.11-.25-2.82Z"/></svg>')!important;
+	transform:rotate(0deg);
+	
+}
+
+//6-2025 added custom shortcode for homepage
+// shortcode syntax [showcase title="string,string,..." links="url,url,..." svg="string,string,..." text="string|string|..."]
