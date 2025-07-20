@@ -12,7 +12,7 @@ function sc_showcase($atts){
 	<div class="showcase_container">
 	<?php for($i=0; $i<$counting;$i++){?>
 		<div class="showcase-item">
-			<a class="showcase-link" href="<?php $link[$i]?>">
+			<a class="showcase-link" href="<?php esc_attr($link[$i]);?>">
 				<div class="showcase-img">
 				<?php if($svg[$i]=='learn'):
 					echo <<<EOT
@@ -99,10 +99,10 @@ function sc_showcase($atts){
 				endif;?>
 				</div>
 				<div class="showcase-title">
-					<h3><?php echo $title[$i];?></h3>
+					<h3><?php esc_html_e($title[$i]);?></h3>
 				</div>
 				<div class="showcase-excerpt">
-					<p><?php echo $text[$i];?></p>
+					<p><?php esc_html_e($text[$i]);?></p>
 				</div>
 			</a>
 		</div>
