@@ -1,0 +1,40 @@
+#primary-navigation{
+	background-color:;
+}
+.p-nav ul,.p-nav li,.p-nav a{
+	background-color:transparent;
+}
+#primary-navigation > ul > li > a{
+	border-bottom:2px solid transparent;
+}
+#primary-navigation .menu-toggle{
+	width:32px;
+	height:32px;
+}
+#menu-toggle-svg{
+	width:100%;
+	height:auto;
+}
+#primary-menu{
+	display:inline-block;
+	list-style:none;	
+}
+#primary-menu li{
+	position:relative;
+}
+#primary-menu li > ul{
+	position:absolute;
+	visibility:hidden;
+	top:100%;
+	left:0;
+}
+#primary-menu > .menu-item > a,.sub-menu > .menu-item > a{ 
+	font-size:16px;
+	line-height:20px;
+}
+#primary-menu > .menu-item > a{
+	padding:6px 16px;
+}
+#primary-menu .sub-menu > .menu-item > a{
+	padding:10px 16px;
+}
