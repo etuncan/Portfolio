@@ -146,16 +146,12 @@ function ppn_page_title() {
 	$css_style = '';
 	$css_style_title = '';
 	$title_style = 1;
-	if(is_singular() || is_post_type_archive('product') || is_tax('product_cat') || is_tax('product_tag')) {
-		$post_id = 0;
-		if(is_post_type_archive('product') || is_tax('product_cat') || is_tax('product_tag')) {
-			$post_id = wc_get_page_id('shop');
-		} else {
-			global $post;
-			$post_id = $post->ID;
-		}
+	if(is_singular()){
+		global $post;
+		$post_id = $post->ID;
 		$page_data = ppn_get_sanitize_page_title_data($post_id);
 		$title_style = $page_data['title_style'];
+		
 		if($page_data['title_background_image']) {
 			$css_style .= 'background-image: url('.$page_data['title_background_image'].');';
 			$title_class = 'has-bg-image';
@@ -163,6 +159,7 @@ function ppn_page_title() {
 		if($page_data['title_background_color']) {
 			$css_style .= 'background-color: '.$page_data['title_background_color'].';';
 		}
+		
 		if($page_data['title_text_color']) {
 			$css_style_title = 'color: '.$page_data['title_text_color'].';';
 		}
@@ -174,11 +171,13 @@ function ppn_page_title() {
 	}
 
 	$output .= '<div class="page-title-text"><'.($title_style == '2' ? 'h2' : 'h1').' style="'.$css_style_title.'">'.ppn_title('', false).'</'.($title_style == '2' ? 'h2' : 'h1').'></div>';
+	
 	if($title_style && get_the_title($post_id)!=="Home") {
 		return '<div id="page-title" class="page-title-block page-title-style-'.$title_style.' '.$title_class.'" style="'.$css_style.'"><div class="container">'.$output.'</div></div>';
 	}
 	return false;
 }
+
 function get_shortcode_scripts(){
 	global $post;
 	if(has_shortcode($post->post_content,'sc_faq')){
