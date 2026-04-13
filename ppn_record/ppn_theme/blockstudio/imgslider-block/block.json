@@ -1,0 +1,24 @@
+{
+  "$schema": "https://blockstudio.dev/schema/block",
+  "name": "blockstudio/imgslider-block",
+  "title": "Image Slider",
+  "category": "media",
+  "icon": "star-filled",
+  "description": "A Theme block for showing pug images.",
+"blockstudio": {
+    "attributes": [
+	{
+        "id": "name",
+        "type": "text",
+        "label": "Name"
+      },
+	  {
+        "id": "image",
+        "type": "files",
+        "label": "Image",
+		 "default": "",
+		"multiple": true
+      }
+	  ]
+}
+}
