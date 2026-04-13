@@ -22,8 +22,7 @@
 						if(!is_singular()): 
 							/*ppn_pagination(); TODO:change pagination to function*/ echo '</div>';
 						endif;
-					else:
-						get_template_part('content','none');
+					//TODO: add else option
 					endif;
 				?>
 				</div>
