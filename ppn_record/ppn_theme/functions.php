@@ -15,7 +15,7 @@ if(!function_exists('ppn_setup')) :
 		add_theme_support('woocommerce');
 		add_theme_support('title-tag');
 		set_post_thumbnail_size(672, 372, true);
-		add_image_size('ppn-post-thumb', 256, 256, true);
+		add_image_size('ppn-post-thumb', 300, 200, true);
 		register_nav_menus(array(
 			'primary' => __('Top primary menu', 'ppn'),
 			'footer'  => __('Footer menu', 'ppn'),
@@ -201,7 +201,7 @@ function get_shortcode_scripts(){
 	wp_register_script('ppn-imagesloaded', get_template_directory_uri() . '/js/imagesloaded.min.js', array('jquery'), '', true);
 	wp_register_script('ppn-isotope', get_template_directory_uri() . '/js/isotope.min.js', array('jquery'), '', true);
 	wp_register_script('ppn-blog', get_template_directory_uri() . '/js/ppn-blog.js');
-	wp_enqueue_script('header_script', get_template_directory_uri() . '/js/header.js', array(),'1.2');
+	wp_enqueue_script('header_script', get_template_directory_uri() . '/js/header.js', array(),'1.3');
 }
 add_action('wp_enqueue_scripts', 'get_shortcode_scripts');
 
