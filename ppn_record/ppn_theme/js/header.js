@@ -8,7 +8,6 @@ function checkAdminBar(){
 		bodyEl.classList.add('admin-bar-exists');
 	}
 }
-console.log('test');
 function setHeaderObject(){
 	const HeaderItems={
 		menucont:document.getElementById('primary-navigation'),
@@ -45,7 +44,6 @@ function setHeaderObject(){
 	//**Menu Top Level**
 	function onMenuItemClick(){
 		const element=this.nextElementSibling;
-		console.log("tester");
 		if(element.classList.contains('visible-el')){
 			this.style.setProperty('--arrow-rotation','-90deg');
 			element.classList.remove('visible-el');
@@ -60,7 +58,6 @@ function setHeaderObject(){
 	//**Menu Sub Level**
    	function onSubItemClick(){
 		const element=this.nextElementSibling;
-		console.log('started');
 		if(element.classList.contains('visible-el')){
 			this.style.setProperty('--arrow-rotation','-90deg');
 			element.classList.remove('visible-el');
@@ -122,11 +119,9 @@ function setHeaderObject(){
 	}
 	
 	if(window.innerWidth<768){
-		console.log("works");
 		HeaderItems.menubutton.classList.add('button-show');
 		HeaderItems.menu.classList.add('mobile-view');
 		HeaderItems.menubutton.addEventListener('click',toggleMainMenu);
-		console.log(HeaderItems.submenulist);
 		for(n of HeaderItems.menulist){
 			n.addEventListener('click', onMenuItemClick); 
 		}
@@ -135,7 +130,6 @@ function setHeaderObject(){
 		}
 	}
 	else{
-		console.log('works2');
 		setHover('set');
 		for(n of HeaderItems.submenulist){
 			n.addEventListener('click', onSubItemClick); 
@@ -146,7 +140,6 @@ function setHeaderObject(){
 	}
 	mediaQuery.addEventListener('change', handleMediaQuery);
 	//sets listener for change in breakpoint (important to set last)
-	console.log('object has set');
 }//**END setHeaderObject**
 
 function setScrollTopButton(){
