@@ -3,18 +3,18 @@
  * Template part for content on home page
  */
 
-	$page_data = array(
-		'title' => ppn_get_sanitize_page_title_data(get_the_ID())
-	);
-	if(get_post_type() == 'page') {
-		$page_data['blog'] = ppn_get_sanitize_page_blog_data(get_the_ID());
-	}
-	$panel_classes = array('panel', 'row');
-	$center_classes = 'panel-center';
+$page_data = array('title' => ppn_get_sanitize_page_title_data(get_the_ID()));
+	
+if(get_post_type() == 'page') {
+	$page_data['blog'] = ppn_get_sanitize_page_blog_data(get_the_ID());
+}
+
+$container_1='block-container';
+$container_2='block-wrapper';
 ?>
 
-<div class="<?php echo esc_attr(implode(' ', $panel_classes)); ?>" style="<?php if(get_the_title(get_the_ID())==='Home'){echo esc_attr('padding-top:0;');}?>">
-	<div class="<?php echo esc_attr($center_classes); ?>">
+<div class="<?php echo esc_attr($container_1); ?>" style="<?php if(get_the_title(get_the_ID())==='Home'){echo esc_attr('padding-top:0;');}?>">
+	<div class="<?php echo esc_attr($container_2); ?>">
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<div class="entry-content post-content">
 				<?php
