@@ -1,0 +1,7 @@
+{
+  "name": "patterns/pugpage-pattern",
+  "title": "Adoption Post",
+  "description": "Content for a pug adoption post",
+  "categories": ["media", "text"],
+  "keywords": ["gallery", "slides", "text", "bio"]
+}
