@@ -1,0 +1,24 @@
+{
+  "$schema": "https://blockstudio.dev/schema/block",
+  "name": "blockstudio/pugbio-block",
+  "title": "Pug Biography",
+  "category": "text",
+  "icon": "star-filled",
+  "description": "Pug Adoption Post Block: Bio.",
+"blockstudio": {
+    "attributes": [
+	{
+	  "id": "content",
+	  "type": "richtext"
+	},
+	{
+	  "id": "donation",
+	  "type": "number",
+	  "label": "Donation Amount",
+	  "required": true,
+	  "min": 100,
+	  "step": 1
+	}
+  ]
+}
+}
