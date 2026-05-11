@@ -1,6 +1,6 @@
 <?php 
 /*
- * Template for displaying home page
+ * Template for displaying pages
  */
 ?>
 <?php get_header();?>
