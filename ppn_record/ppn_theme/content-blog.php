@@ -2,6 +2,7 @@
 /**
  * Template part for post content
  */
+//TODO:Remake Sidebar asset
 
 	$item_data = array(
 		'sidebar_position' => '',
