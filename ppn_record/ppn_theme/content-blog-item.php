@@ -1,5 +1,7 @@
 <?php
-
+	/*
+	 * Template for post items 
+	 */
 	$blog_style = isset($blog_style) ? $blog_style : 'default';
 	$post_data = ppn_get_sanitize_page_title_data(get_the_ID());
 	$post_item_data = ppn_get_sanitize_post_data(get_the_ID());
@@ -41,37 +43,36 @@
 				?>
 				<?php if($categories): ?>
 					<div class="tags">
-						<?php $special_category_one = get_the_category();?>
 						<?php foreach ($categories as $key => $category):?>
-							<?php if($key): ?><span class="sep">|</span><?php endif;
-							if($category->cat_name==='adopted pugs'):
-								echo $category->cat_name;
-							else:?>
-								<a href="<?php 
-									if(($special_category_one[0]->name) == 'Available Pugs'){
-										echo get_permalink(25);}
-								 	else{
-										echo get_category_link( $category->term_id );
-									} 
-								?>" title="<?php 
-									echo esc_attr( sprintf( __( "View all posts in %s", "ppn" ), $category->name ));
+							<?php if($key): ?><span class="sep">|</span><?php endif;?>
+								<a href="<?php echo get_category_link( $category->term_id );
+								?>" title="<?php echo esc_attr( sprintf( __( "See all %s", "ppn" ), $category->name ));
+								?>" class="cat-link <?php 
+										if($category->cat_name=='Available Pugs'){
+											echo esc_attr("cat-style-1");
+										}
+										elseif($category->cat_name=='Medical Hold'||$category->cat_name==='Pending Adoption'){
+											echo esc_attr("cat-style-2");
+										}
+										elseif($category->cat_name=='Adopted Pugs'){
+											echo esc_attr("cat-style-3");
+										}
 								?>">
 									<?php echo $category->cat_name; ?>
 								</a>
-							<?php endif;
-						endforeach; ?>
+						<?php endforeach;?>
 					</div>
-				<?php endif ?>
+				<?php endif;?>
 				<div class="summary">
 					<?php if ( !empty( $post_data['title_excerpt'] ) ): ?>
 						<?php echo $post_data['title_excerpt']; ?>
 					<?php else: ?>
-						<?php echo preg_replace('%&#x[a-fA-F0-9]+;%', '', apply_filters('the_excerpt', get_the_excerpt())); ?>
+						<?php echo preg_replace('%&#x[a-fA-F0-9]+;%','',apply_filters('the_excerpt', get_the_excerpt()));?>
 					<?php endif; ?>
 				</div>
 				<div class="info">
 					<span class="date"><?php echo get_the_date(); ?></span>
-					<span><a href="<?php echo get_permalink(); ?>"><?php //_e('Read more', 'scalia'); ?></a></span>
+					<span><a href="<?php echo get_permalink(); ?>"><?php //_e('Read more', 'ppn'); ?></a></span>
 				</div>
 			</div>
 		</article>
@@ -101,7 +102,7 @@
 						if($category->cat_name==='Available Pugs'):?>
 							<a class="new_pug-btn" 
 							   href="<?php echo esc_url(get_permalink(25)); ?>" 
-							   title="<?php echo esc_attr(sprintf( __( "View all posts in %s", "ppn" ),
+							   title="<?php echo esc_attr(sprintf( __( "See all %s", "ppn" ),
 								$category->name));?>"
 							>
 							<?php echo $category->cat_name;?>
@@ -109,7 +110,7 @@
 					<?php else:?>
 						<a class="new_pug-btn" 
 						   href="<?php echo get_category_link( $category->term_id );?>" 
-						   title="<?php echo esc_attr(sprintf( __( "View all posts in %s", "ppn" ), $category->name));?>"
+						   title="<?php echo esc_attr(sprintf( __( "See all %s", "ppn" ), $category->name));?>"
 						>
 							<?php echo $category->cat_name;?>
 						</a>
@@ -131,18 +132,26 @@
 					</div>
 					<div class="post-text">
 						<header class="entry-header">
-							<?php the_title('<div class="entry-title">
-							<a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a>
-							</div>');?>
+							<?php the_title('<div class="entry-title"><a href="'.esc_url(get_permalink()).'" rel="bookmark">', '</a></div>');?>
 							<div class="entry-meta">
 								<?php if($categories):?>
 									<span class="tag-links">
 										<?php foreach ($categories as $key => $category):
-											if($key):
-										?>
+											if($key):?>
 												<span class="sep">|</span>
 											<?php endif;?>
+											<a href="<?php echo get_category_link( $category->term_id );?>"
+											   class="cat-link <?php if($category->cat_name=='Available Pugs'){
+																echo esc_attr("cat-style-1");
+															}
+													  		elseif($category->cat_name=='Medical Hold'||$category->cat_name==='Pending Adoption'){
+																echo esc_attr("cat-style-2");
+															}
+													  		elseif($category->cat_name=='Adopted Pugs'){
+																echo esc_attr("cat-style-3");
+															}?>">
 											<?php echo $category->cat_name;?>
+										</a>
 										<?php endforeach; ?>
 									</span><!-- .tag-links -->
 								<?php endif ?>
