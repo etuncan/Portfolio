@@ -14,7 +14,7 @@ if(!function_exists('ppn_setup')) :
 		add_theme_support('post-thumbnails');
 		add_theme_support('woocommerce');
 		add_theme_support('title-tag');
-		set_post_thumbnail_size(672, 372, true);
+		set_post_thumbnail_size(240, 180, true);
 		add_image_size('ppn-post-thumb', 300, 200, true);
 		register_nav_menus(array(
 			'primary' => __('Top primary menu', 'ppn'),
@@ -26,12 +26,12 @@ add_action('after_setup_theme', 'ppn_setup');
 
 function ppn_enqueue_style() {
     wp_enqueue_style( 'ppn-style', get_stylesheet_uri() );
-}
+}//Temp fix
 add_action( 'wp_enqueue_scripts', 'ppn_enqueue_style' );
 
 function ppn_scripts() {
-	wp_enqueue_style('ppn-header', get_template_directory_uri() . '/css/header.css');
-	wp_register_style('ppn-blog', get_template_directory_uri() . '/css/blog.css');
+	wp_enqueue_style('ppn-header', get_template_directory_uri() . '/css/header.css',array(),'1.2');
+	wp_register_style('ppn-blog', get_template_directory_uri() . '/css/blog.css',array(),'1.3.7');
 	
 	/* Lazy Loading */
 	//wp_enqueue_script('ppn-lazy-loading', get_template_directory_uri() . '/js/jquery.lazyLoading.js', array(), false, true);
@@ -147,11 +147,11 @@ function ppn_page_title() {
 	$css_style_title = '';
 	$title_style = 1;
 	if(is_singular()){
+		$post_id = 0;
 		global $post;
 		$post_id = $post->ID;
 		$page_data = ppn_get_sanitize_page_title_data($post_id);
 		$title_style = $page_data['title_style'];
-		
 		if($page_data['title_background_image']) {
 			$css_style .= 'background-image: url('.$page_data['title_background_image'].');';
 			$title_class = 'has-bg-image';
@@ -159,8 +159,7 @@ function ppn_page_title() {
 		if($page_data['title_background_color']) {
 			$css_style .= 'background-color: '.$page_data['title_background_color'].';';
 		}
-		
-		if($page_data['title_text_color']) {
+		if($page_data['title_text_color']){
 			$css_style_title = 'color: '.$page_data['title_text_color'].';';
 		}
 	}
@@ -171,13 +170,11 @@ function ppn_page_title() {
 	}
 
 	$output .= '<div class="page-title-text"><'.($title_style == '2' ? 'h2' : 'h1').' style="'.$css_style_title.'">'.ppn_title('', false).'</'.($title_style == '2' ? 'h2' : 'h1').'></div>';
-	
 	if($title_style && get_the_title($post_id)!=="Home") {
 		return '<div id="page-title" class="page-title-block page-title-style-'.$title_style.' '.$title_class.'" style="'.$css_style.'"><div class="container">'.$output.'</div></div>';
 	}
 	return false;
 }
-
 function get_shortcode_scripts(){
 	global $post;
 	if(has_shortcode($post->post_content,'sc_faq')){
@@ -216,6 +213,6 @@ function category_template_redirect(){
         wp_safe_redirect($url,301);
         exit;
     }
-}
+}//Temp fix
 add_action('template_redirect', 'category_template_redirect');
 ?>
