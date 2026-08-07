@@ -1,75 +1,84 @@
-class GSlider{
-	constructor(domNode){
-		this.rootEl=domNode;
-		this.boxEl=this.rootEl.querySelector('.gs-box');
-		this.navEl=this.rootEl.querySelector('.gs-control');
-		this.navList=this.navEl.querySelectorAll('a');
-		this.slides=this.boxEl.querySelectorAll(':scope>.gs-face');
-		this.acList=Array.from(this.navList).map(el=>el.getAttribute('aria-controls'));
-		this.listLength=this.navList.length;
-		this.activeIndex=0;
-		this.intervalId=null;
-		this.itemWidth=this.boxEl.offsetWidth;
-		this.offset=0;
-		this.intervalTime=10000;
-		
-		//find active button
-		this.activeBtn=this.navEl.querySelector('a[class="active"]');
-		//add Event Listener
-		this.navList.forEach((a,index,arr)=>{
-			arr[index].addEventListener('click',this.onBtnClick.bind(this));
-		});
-		const resizeObserver = new ResizeObserver((entries) => {
-  			for (const entry of entries) {
-    			const currentWidth=entry.contentBoxSize[0].inlineSize;
-  			
-				if(currentWidth!==this.itemWidth){
-					this.itemWidth=currentWidth;
-					this.boxEl.style.transform='translate3d(-' + (this.activeIndex * currentWidth) + 'px,0px,0px)';
-				}
-			}
-		});
-		resizeObserver.observe(this.boxEl);
-		this.timer();
-	}//**constructor END**
-	onBtnClick(event){
-		const targetEl=event.target;
-		this.toggle(targetEl);
-	}
-	toggle(targetEl){
-		if(targetEl.getAttribute('aria-controls')===this.activeBtn.getAttribute('aria-controls')){
-			return;	
+function gsSlider(){
+	const root=document.getElementById('ppn_gs-cont');
+	const frame=root.querySelector('.gs-box');
+	const list=root.querySelector('.gs-control').querySelectorAll('a');
+	let curr_list_item=root.querySelector('a[class="active"]');
+	const listener=SwipeListener(frame);
+	const interval_time=10000;	
+	let active_index=0;
+	let offset=0;
+	let interval_id=null;
+	let item_width=frame.offsetWidth;
+
+	frame.addEventListener('swipe', function(e){
+		if(e.detail.directions.left===true){
+			stopTimer();
+			cycle();
 		}
-		this.intervalId && this.stopTimer();
-		this.activeBtn.classList.toggle('active'); //remove class
-		this.activeBtn=targetEl; //update activeBtn
-		this.activeIndex=this.acList.indexOf(this.activeBtn.getAttribute('aria-controls'));
-		this.activeBtn.classList.toggle('active'); //add class
-		this.swapper();
+		else if(e.detail.directions.right===true){
+			stopTimer();
+			curr_list_item.classList.remove('active');
+			active_index=active_index > 0 ? active_index-1:(list.length - 1);
+			curr_list_item=list[active_index]; //update curr_list_item
+			swapper();
+			curr_list_item.classList.add('active');
+		}
+	});
+	
+	list.forEach((item) => {
+		item.addEventListener('click', onButtonClick);
+	});
+	
+	const resizeObserver = new ResizeObserver((entries) => {
+  		for (const entry of entries){
+			const curr_width=entry.contentBoxSize[0].inlineSize;
+			if(curr_width!==item_width){
+				item_width=curr_width;
+				frame.style.transform='translate3d(-' + (active_index * curr_width) + 'px,0px,0px)';
+			}
+		}		
+	});
+	
+	function swapper(){
+		offset=active_index * frame.offsetWidth;
+		frame.style.transform='translate3d(-' + offset + 'px,0px,0px)';
+	}	
+	
+	function onButtonClick(){
+		toggle(this);
 	}
-	swapper(){
-		this.offset=this.activeIndex * this.boxEl.offsetWidth;
-		this.boxEl.style.transform='translate3d(-' + this.offset + 'px,0px,0px)';
+	
+	function toggle(e){
+		if(e.classList.contains('active')){
+			return;
+		}
+		stopTimer();
+		curr_list_item.classList.remove('active'); //remove class
+		curr_list_item=e;
+		curr_list_item.classList.add('active'); //add class		
+		active_index=Array.from(list).findIndex(el => el.classList.contains('active'));
+		swapper();
 	}
-	cycle(){
-		this.activeBtn.classList.toggle('active'); //remove class
-		this.activeIndex=this.activeIndex < (this.listLength - 1) ? this.activeIndex+1:0;
-		this.activeBtn=this.navList[this.activeIndex]; //update activeBtn
-		this.swapper();
-		this.activeBtn.classList.toggle('active'); //add class
+	//Toggle Functions^^^
+	
+	function cycle(){
+		curr_list_item.classList.remove('active');
+		active_index=active_index < (list.length - 1) ? active_index+1:0;
+		curr_list_item=list[active_index]; //update curr_list_item
+		swapper();
+		curr_list_item.classList.add('active');
+	}//changes menu item tagged as active, calls swapper func
+	
+	function startTimer(){
+		interval_id=setInterval(()=>cycle(), interval_time);
 	}
-	timer(){
-		this.intervalId=setInterval(()=>this.cycle(), this.intervalTime);
+	
+	function stopTimer(){
+		clearInterval(interval_id);
+		interval_id=null;
 	}
-	stopTimer(){
-		clearInterval(this.intervalId);
-		this.intervalId=null;
-	}
+	//Interval Functions ^^^
+	resizeObserver.observe(frame);
+	startTimer();//initiate timer
 }
-window.onload=function(){
-// init gs
-const ppnGS=document.querySelectorAll('.gs-container');	
-ppnGS.forEach(
-	(gsEl) => {new GSlider(gsEl);}
-);
-};
+window.addEventListener('load', gsSlider);
